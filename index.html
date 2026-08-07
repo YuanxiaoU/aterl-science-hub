@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ATERL 理工科研究与学习资源中心">
+  <title>ATERL Science Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-mark">A/</div>
+          <div>
+            <h1>ATERL Science Hub</h1>
+            <p id="brandSubtitle">理工科研究与学习资源中心</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="header-button" id="homeButton">首页</button>
+          <button class="header-button" id="formulaButton">公式库</button>
+          <button class="header-button" id="languageButton">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="view active" id="homeView">
+        <div class="hero">
+          <div class="kicker">OPEN SCIENCE DIRECTORY</div>
+          <h2 id="heroTitle">理工科资源，集中在一个清晰的入口。</h2>
+          <p id="heroDescription">
+            面向学生、研究者和技术实践者的学术资源导航。
+            从期刊、数据库到分析软件与编程工具，按学科快速进入。
+          </p>
+
+          <div class="home-info">
+            <span><strong>5</strong><span id="subjectWord">个学科</span></span>
+            <span><strong>40+</strong><span id="resourceWord">项精选资源</span></span>
+            <span><strong>40</strong><span id="formulaWord">个经典公式</span></span>
+          </div>
+        </div>
+
+        <div class="section-title">
+          <div>
+            <h2 id="categoryTitle">选择学科</h2>
+            <p id="categoryDescription">进入对应学科的期刊、工具和学习资源。</p>
+          </div>
+        </div>
+
+        <div class="category-grid" id="categoryGrid"></div>
+
+        <footer class="home-footer">
+          <span>ATERL Science Hub</span>
+          <span id="homeFooterText">公开资源整理与学习入口</span>
+        </footer>
+      </section>
+
+      <section class="view" id="categoryView">
+        <div class="back-top">
+          <button class="back-button" id="backButton">← 返回学科目录</button>
+        </div>
+
+        <div class="detail-head">
+          <div>
+            <div class="kicker" id="categoryKicker"></div>
+            <h2 id="categoryName"></h2>
+            <p id="categoryDescriptionDetail"></p>
+          </div>
+
+          <button class="header-button" id="categoryFormulaButton">
+            查看公式库
+          </button>
+        </div>
+
+        <div class="control-bar">
+          <input
+            class="input"
+            id="resourceSearch"
+            type="search"
+            placeholder="搜索资源名称、简介或关键词"
+          >
+
+          <select class="select" id="resourceKind">
+            <option value="all">全部类型</option>
+            <option value="journal">期刊 / 出版物</option>
+            <option value="database">数据库</option>
+            <option value="tool">工具 / 软件</option>
+            <option value="course">课程 / 学习</option>
+          </select>
+
+          <select class="select" id="resourceAccess">
+            <option value="all">全部访问方式</option>
+            <option value="free">免费或开放</option>
+            <option value="paid">可能需要订阅</option>
+          </select>
+        </div>
+
+        <div class="resource-summary">
+          <span id="resourceCount"></span>
+          <span id="favoriteTip">点击星标保存资源</span>
+        </div>
+
+        <div class="resource-grid" id="resourceGrid"></div>
+      </section>
+
+      <section class="view" id="formulaView">
+        <div class="back-top">
+          <button class="back-button" id="formulaBackButton">← 返回首页</button>
+        </div>
+
+        <div class="detail-head">
+          <div>
+            <div class="kicker">FORMULA ARCHIVE / 公式档案</div>
+            <h2 id="formulaTitle">经典公式库</h2>
+            <p id="formulaDescription">按学科浏览常用的理工科基础公式。</p>
+          </div>
+        </div>
+
+        <div class="formula-toolbar" id="formulaToolbar">
+          <button class="formula-filter active" data-formula-category="all">全部</button>
+          <button class="formula-filter" data-formula-category="chemistry">化学</button>
+          <button class="formula-filter" data-formula-category="physics">物理</button>
+          <button class="formula-filter" data-formula-category="math">数学</button>
+          <button class="formula-filter" data-formula-category="cs">计算机</button>
+        </div>
+
+        <div class="formula-grid" id="formulaGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

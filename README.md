@@ -1,14 +1,18 @@
 # ATERL Science Hub
 
-ATERL Science Hub 是一个面向学生、研究者和技术实践者的理工科资源导航网站。
+ATERL 官方站点：Aterl-DistSim 精馏装置仿真与控制系统（开源学习项目）。
 
-网站内容包括：
+- 站点入口：index.html
+- 许可：Apache-2.0
+- 本地部署 · 无云端依赖
 
-- 化学、物理、数学、计算机和生物学科资源
-- 学术期刊和数据库
-- 分析软件和编程工具
-- 在线课程和公式库
+## 结构
 
-网站地址：
-
-https://yuanxiaou.github.io/aterl-science-hub/
+```
+index.html      页面
+style.css       样式
+main.js         中英切换 / 动画 / 模块切换
+effects.js      鼠标视差 / 时间轴 / 世界地图
+assets/         LOGO 与软件截图
+CNAME           GitHub Pages 自定义域名
+```

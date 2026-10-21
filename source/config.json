@@ -1,0 +1,268 @@
+{
+  "language": "zh",
+  "ollama_url": "http://127.0.0.1:11434",
+  "ai_model": "qwen2.5:7b-instruct-q4_K_M",
+  "ui": {
+    "geom": null,
+    "state": null,
+    "focus": false
+  },
+  "pid": {
+    "loops": {}
+  },
+  "plc": {
+    "proto": "s7",
+    "host": "192.168.0.1",
+    "port": 502,
+    "rack": 0,
+    "slot": 1,
+    "db": 10,
+    "s7_layout": "grad",
+    "com": "COM3",
+    "baud": 9600,
+    "slave": 1,
+    "interval": 500,
+    "tags": [
+      {
+        "dev": "T101",
+        "field": "temp",
+        "db": 1,
+        "off": 0,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "E102",
+        "field": "temp",
+        "db": 1,
+        "off": 8,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "T101",
+        "field": "press",
+        "db": 1,
+        "off": 12,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "T101",
+        "field": "level",
+        "db": 1,
+        "off": 32,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "T101",
+        "field": "sp_temp",
+        "db": 2,
+        "off": 0,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "FV105",
+        "field": "opening",
+        "db": 2,
+        "off": 8,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "FV104",
+        "field": "opening",
+        "db": 2,
+        "off": 12,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "E102",
+        "field": "sp_temp",
+        "db": 4,
+        "off": 0,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "T101",
+        "field": "sp_level",
+        "db": 4,
+        "off": 4,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "E102",
+        "field": "power",
+        "db": 4,
+        "off": 8,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "FV106",
+        "field": "opening",
+        "db": 4,
+        "off": 12,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "V101",
+        "field": "level",
+        "db": 4,
+        "off": 16,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "V102",
+        "field": "level",
+        "db": 4,
+        "off": 20,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "V103",
+        "field": "level",
+        "db": 4,
+        "off": 24,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "V104",
+        "field": "level",
+        "db": 4,
+        "off": 28,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "P101",
+        "field": "speed",
+        "db": 4,
+        "off": 32,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "P102",
+        "field": "speed",
+        "db": 4,
+        "off": 36,
+        "dtype": "real",
+        "rw": "R",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "E101",
+        "field": "power",
+        "db": 4,
+        "off": 40,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "FV101",
+        "field": "opening",
+        "db": 4,
+        "off": 44,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "FV102",
+        "field": "opening",
+        "db": 4,
+        "off": 48,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "FV103",
+        "field": "opening",
+        "db": 4,
+        "off": 52,
+        "dtype": "real",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "P101",
+        "field": "running",
+        "db": 4,
+        "off": 56,
+        "dtype": "int",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "P102",
+        "field": "running",
+        "db": 4,
+        "off": 58,
+        "dtype": "int",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      },
+      {
+        "dev": "ESD",
+        "field": "trigger",
+        "db": 4,
+        "off": 60,
+        "dtype": "int",
+        "rw": "R/W",
+        "scale": 1.0,
+        "offset": 0.0
+      }
+    ]
+  }
+}

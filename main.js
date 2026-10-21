@@ -111,7 +111,7 @@
       "map.note": "* 开源学习项目 · 示意：可在任意地点本地部署",
 
       "contact.title": "问题反馈与交流",
-      "contact.desc": "本项目为开源学习项目，欢迎通过邮件或在 GitHub 仓库提交 Issue 交流。",
+      "contact.desc": "本项目为开源学习项目，欢迎在 GitHub 仓库提交 Issue 交流。",
 
       "footer.copyright": "© 2026 ATERL · Aterl-DistSim",
       "footer.license": "Apache-2.0 License",
@@ -222,7 +222,7 @@
       "map.note": "* Open-source learning project · illustrative: deployable locally anywhere",
 
       "contact.title": "Feedback & Contact",
-      "contact.desc": "This is an open-source learning project. Reach us by email or open an issue on GitHub.",
+      "contact.desc": "This is an open-source learning project. Feel free to open an issue on GitHub.",
 
       "footer.copyright": "© 2026 ATERL · Aterl-DistSim",
       "footer.license": "Apache-2.0 License",
@@ -366,4 +366,36 @@
       fillBars(all[a]);
     }
   }
+  // 区块级动效：同组元素依次进场 + 每个 section 顶边"刷新"扫描一次
+  (function initBlockMotion() {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var groups = document.querySelectorAll(".container, .grid-4, .grid-3, .stats-row");
+    for (var g = 0; g < groups.length; g++) {
+      var kids = groups[g].children;
+      var idx = 0;
+      for (var k = 0; k < kids.length; k++) {
+        var el = kids[k];
+        if (!el.classList || !el.classList.contains("reveal")) continue;
+        if (!el.style.getPropertyValue("--d")) {
+          el.style.setProperty("--d", idx * 80 + "ms");
+        }
+        idx++;
+      }
+    }
+
+    var sections = document.querySelectorAll(".section");
+    if (!("IntersectionObserver" in window)) {
+      for (var s = 0; s < sections.length; s++) sections[s].classList.add("scan");
+      return;
+    }
+    var sio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add("scan");
+        sio.unobserve(en.target);
+      });
+    }, { threshold: 0.12 });
+    for (var i = 0; i < sections.length; i++) sio.observe(sections[i]);
+  })();
 })();

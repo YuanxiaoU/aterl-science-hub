@@ -627,14 +627,70 @@ img { max-width: 100%; }
 }
 
 /* ---------------- 滚动入场动画 ---------------- */
+/* 区块级入场：上浮 + 轻微放大 + 由虚到实，像画面"刷新"后重新对焦 */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity .85s ease, transform .85s cubic-bezier(.16, 1, .3, 1);
+  transform: translate3d(0, 44px, 0) scale(.984);
+  filter: blur(7px);
+  transition:
+    opacity .62s ease,
+    transform 1s cubic-bezier(.16, 1, .3, 1),
+    filter .62s ease;
   transition-delay: var(--d, 0ms);
-  will-change: opacity, transform;
+  will-change: opacity, transform, filter;
 }
-.reveal.visible { opacity: 1; transform: none; }
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+  will-change: auto;
+}
+
+/* 区块顶部的扫描线：进入视口时从左向右掠过一次 */
+.section { position: relative; }
+.section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(46, 124, 246, 0) 0%,
+    rgba(46, 124, 246, .55) 22%,
+    rgba(46, 124, 246, .95) 50%,
+    rgba(46, 124, 246, .55) 78%,
+    rgba(46, 124, 246, 0) 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+.section.scan::after { animation: scanSweep 1.15s cubic-bezier(.4, 0, .2, 1) forwards; }
+@keyframes scanSweep {
+  0%   { transform: scaleX(0);   opacity: 0; }
+  12%  { opacity: .95; }
+  70%  { opacity: .75; }
+  100% { transform: scaleX(1);   opacity: 0; }
+}
+
+/* 大屏时让整块内容整体上移得更多，强化"分区块推进"的节奏 */
+@media (min-width: 1025px) {
+  .section-head.reveal { transform: translate3d(0, 56px, 0) scale(.982); }
+  .section-head.reveal.visible { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .section-head.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .section.scan::after { animation: none; }
+}
 
 /* ---------------- 响应式 ---------------- */
 @media (max-width: 1024px) {
